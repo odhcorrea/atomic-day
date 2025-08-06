@@ -1,10 +1,17 @@
+import { ConvexProvider, ConvexReactClient } from "convex/react";
+
+import { ThemeProvider } from "@/hooks/useTheme";
 import { useFonts } from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 
 import { Slot } from "expo-router";
 
 SplashScreen.preventAutoHideAsync();
+
+const convex = new ConvexReactClient(process.env.EXPO_PUBLIC_CONVEX_URL!, {
+  unsavedChangesWarning: false,
+});
 
 export default function RootLayout() {
    const [loaded, error] = useFonts({
@@ -25,6 +32,11 @@ export default function RootLayout() {
   }
 
   return (
-    <Slot />
+    <ConvexProvider client={convex}>
+      <ThemeProvider>
+        <Slot />
+      </ThemeProvider>
+    </ConvexProvider>
+
   )
 }

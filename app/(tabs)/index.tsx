@@ -1,9 +1,18 @@
-import { Text, View, StyleSheet } from "react-native";
+import useTheme from "@/hooks/useTheme";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
+  const{ toggleDarkMode } = useTheme()
+
+  // const todos = useQuery(api.todos.getTodos)
+  // console.log(todos)
+
   return (
     <View style={styles.container}>
       <Text style={styles.textStyle}>Homepage</Text>
+      <TouchableOpacity onPress={toggleDarkMode}>
+        <Text>Change the theme</Text>
+        </TouchableOpacity>
     </View>
   );
 }

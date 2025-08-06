@@ -1,25 +1,31 @@
-import { Tabs } from "expo-router"
-import { View, Text, TouchableOpacity } from "react-native"
 import { Feather } from "@expo/vector-icons"
+import { Tabs } from "expo-router"
+import useTheme from "../../hooks/useTheme"
 
 const TabsLayout = () => {
+    const { colors } = useTheme()
+
     return(
         <Tabs screenOptions={{
-            tabBarActiveTintColor: "white",
+            tabBarActiveTintColor: colors.primary,
             headerShown: false,
             tabBarLabelStyle: {
                 fontFamily: 'OpenRunde-Medium',
                 fontSize: 12,
             },
             tabBarStyle: {
-                backgroundColor: '#000',  
-                borderTopWidth: 0,      
+                backgroundColor: colors.bg,
+                borderTopWidth: 1,
+                borderBottomWidth: 1,
+                borderLeftWidth: 1,
+                borderRightWidth: 1,
+                borderColor: colors.border,        
                 height: 60,        
                 position: 'absolute', 
                 marginHorizontal: 60,
                 borderRadius: 100,
                 bottom: 40,  
-                paddingTop: 2,
+                //paddingTop: 2,
             },
             tabBarItemStyle: {
                 flex: 1,
