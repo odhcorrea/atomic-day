@@ -62,7 +62,7 @@ const darkColors: ColorScheme = {
   surface: "#1e293b",
   text: "#f1f5f9",
   textMuted: "#94a3b8",
-  border: "#334155",
+  border: "#3341557c",
   primary: "#60a5fa",
   success: "#34d399",
   warning: "#fbbf24",
@@ -75,7 +75,7 @@ const darkColors: ColorScheme = {
     success: ["#10b981", "#059669"],
     warning: ["#f59e0b", "#d97706"],
     danger: ["#ef4444", "#dc2626"],
-    muted: ["#374151", "#4b5563"],
+    muted: ["#d5d5e2", "#d4c8c8"],
     empty: ["#374151", "#4b5563"],
   },
   backgrounds: {
@@ -91,7 +91,7 @@ interface ThemeContextType {
     colors: ColorScheme
 }
 
-const ThemeContext = createContext<undefined | ThemeContextType>(undefined)
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
